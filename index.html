@@ -1,0 +1,172 @@
+
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="reserve">
+    <h1>子ども館予約システム</h1>
+
+     <form onsubmit="disableButton(this)"
+        id="userForm4"
+        action="https://script.google.com/macros/s/AKfycbw9ZFiy_Dq8ddurwKmcGxYrG7z_TVXcfxUs6jpOhiBP0HyA6FoOy-Cqy-x-A2vZRrgrTA/exec"
+        method="post"
+        >
+      <div class="name">
+      <h3>①お子様のお名前を入力してください</h3>
+      <h3>名前 <input type="text" name="name1" size="10" /> <input type="text" name="name2" size="10"/></h3>
+      <h3>フリガナ <input type="text" name="furigana1" size="10"/> <input type="text" name="furigana2" size="10"/></h3>
+      </div>
+      <h3>②お子様の生年月日を入力してください</h3>
+
+      <input type="tel" size="4" maxlength="4" name="year" /> 年
+      <input type="tel" size="2" maxlength="2" name="month" /> 月
+      <input type="tel" size="2" maxlength="2" name="day" /> 日<br />
+
+      <h3>③お住まいの地域を選択してください</h3>
+
+      <select name="area">
+        <option value=""></option>
+        <option value="山手台東1">山手台東1</option>
+        <option value="山手台東2">山手台東2</option>
+        <option value="山手台東3">山手台東3</option>
+        <option value="山手台東４">山手台東４</option>
+        <option value="山手台東5">山手台東5</option>
+        <option value="山手台西1">山手台西1</option>
+        <option value="山手台西2">山手台西2</option>
+        <option value="山手台西4">山手台西4</option>
+        <option value="山本台1">山本台1</option>
+        <option value="山本台2">山本台2</option>
+        <option value="山本台3">山本台3</option>
+        <option value="中山台">中山台</option>
+        <option value="中山桜台">中山桜台</option>
+        <option value="中山五月台">中山五月台</option>
+        <option value="中山寺">中山寺</option>
+        <option value="平井">平井</option>
+        <option value="平井山荘">平井山荘</option>
+        <option value="山本東">山本東</option>
+        <option value="山本中">山本中</option>
+        <option value="山本西">山本西</option>
+        <option value="山本南">山本南</option>
+        <option value="南ひばりガ丘">南ひばりガ丘</option>
+        <option value="中筋">中筋</option>
+        <option value="中筋山手">中筋山手</option>
+        <option value="中筋山手7">中筋山手7</option>
+        <option value="口谷西">口谷西</option>
+        <option value="口谷東">口谷東</option>
+        <option value="山本丸橋">山本丸橋</option>
+        <option value="山本野里">山本野里</option>
+        <option value="西谷">西谷</option>
+        <option value="長尾台">長尾台</option>
+        <option value="花屋敷荘園">花屋敷荘園</option>
+        <option value="花屋敷つつじガ丘">花屋敷つつじガ丘</option>
+        <option value="花屋敷松ガ丘">花屋敷松ガ丘</option>
+        <option value="雲雀丘">雲雀丘</option>
+        <option value="雲雀丘山手">雲雀丘山手</option>
+        <option value="ふじガ丘">ふじガ丘</option>
+        <option value="川西市満願寺">川西市満願寺</option>
+        <option value="その他">その他</option>
+      </select><br><br>
+      その他：<input type="text" name="areaOther" size="10"/><br />
+
+      <h3>④携帯電話番号を入力してください</h3>
+      <input type="tel" size="3" name="phone1" />-<input type="tel" size="4" name="phone2" />-<input
+        type="tel" name="phone3"
+        size="4"
+      />
+      <h2>今月のイベント 応募状況</h2>
+      にっこり赤ちゃん：${event1}<br />
+      うさピョン：${event2}<br />
+      ちょきペタ：${event3}<br />
+      運動あそび：${event4}<br />
+      誕生会：${event5}<br />
+      レッツチャレンジ：${event6}<br />
+      カレンダー作り：${event7}<br />
+      <h3>⑤参加希望のイベントを選択してください</h3>
+      イベント名
+      <select name="event" id="event">
+        <option value=""></option>
+        <option value="にっこり赤ちゃん">にっこり赤ちゃん</option>
+        <option value="うさぴょん">うさぴょん</option>
+        <option value="ちょきペタ">ちょきペタ</option>
+        <option value="運動あそび">運動あそび</option>
+        <option value="誕生会">誕生会</option>
+        <option value="レッツチャレンジ">レッツチャレンジ</option>
+        <option value="カレンダー作り">カレンダー作り</option></select
+      ><br />
+      参加日時
+      <select id="eventDate" name="eventDate">
+        <option value="">先にイベントを選択してください</option>
+      </select>
+
+      <script>
+        const eventDateOptions = {
+          にっこり赤ちゃん: ["${event1}"],
+          うさぴょん: ["${event2}"],
+          ちょきペタ: ["${event3}"],
+          運動あそび: ["${event4}"],
+          誕生会: ["${event5}"],
+          レッツチャレンジ: ["${event6}"],
+          カレンダー作り: ["${event7}"]
+        };
+        const eventSelect = document.getElementById("event");
+        const eventDateSelect = document.getElementById("eventDate");
+
+        eventSelect.addEventListener("change", function () {
+          const selectedEvent = eventSelect.value;
+
+          eventDateSelect.innerHTML = "";
+
+          if (eventDateOptions[selectedEvent]) {
+            eventDateOptions[selectedEvent].forEach((eventDate) => {
+              const option = document.createElement("option");
+              option.value = eventDate;
+              option.textContent = eventDate;
+              eventDateSelect.appendChild(option);
+            });
+          } else {
+            const option = document.createElement("option");
+            option.textContent = "先にイベントを入力してください";
+            eventDateSelect.appendChild(option);
+          }
+        });
+      </script>
+
+      <h3>⑥参加希望の講座を選択してください</h3>
+      <select name="lecture">
+        <option value=""></option>
+        <option value="">親子ふれあい講座</option>
+        <option value="">歯科講習会</option>
+      </select>
+
+      <button class="button4" type="submit">イベント応募</button>
+    </form>
+    </div>
+  </body>
+  <style>
+    .reserve{
+        width:100%;
+        font-family: sans-serif;
+        font-style:bold; 
+    }
+  input{
+    font-size: 200%;
+  }
+
+  select{
+    font-size: 200%;
+  }
+  </style>
+  <script>
+function disableButton(form) {
+  const button = form.querySelector('button[type="submit"]');
+  button.disabled = true;
+  button.textContent = '送信中...';
+  return true; // フォームの送信を続ける
+}
+</script>
+</html>
+
+
