@@ -24,7 +24,7 @@
       <form
         onsubmit="disableButton(this)"
         id="userForm4"
-        action="https://script.google.com/macros/s/AKfycbyQMBF9Vced4kFKP3KHCGZ-uD2LN5ekC5YF-OYoiU4sU1EGmEfpASZO2s1zhtUdUodUtg/exec"
+        action="https://script.google.com/macros/s/AKfycbxyecgW5gUG_D7mH2zv-9kbV--_FuWXN8RU0aAEsZLoYhq1Dhal9fWcccb-bAUrjYOijQ/exec"
         method="post"
       >
         <div class="name">
@@ -46,13 +46,48 @@
 
         <h3>③お住まいの地域を選択してください</h3>
         <select name="area">
-          <option value=""></option>
-          <option value="山手台東1">山手台東1</option>
-          <option value="山手台東2">山手台東2</option>
-          <!-- 他の選択肢は省略（元と同じに戻せます） -->
-          <option value="その他">その他</option></select
-        ><br /><br />
-        その他：<input type="text" name="areaOther" size="10" /><br />
+        <option value=""></option>
+        <option value="山手台東1">山手台東1</option>
+        <option value="山手台東2">山手台東2</option>
+        <option value="山手台東3">山手台東3</option>
+        <option value="山手台東４">山手台東４</option>
+        <option value="山手台東5">山手台東5</option>
+        <option value="山手台西1">山手台西1</option>
+        <option value="山手台西2">山手台西2</option>
+        <option value="山手台西4">山手台西4</option>
+        <option value="山本台1">山本台1</option>
+        <option value="山本台2">山本台2</option>
+        <option value="山本台3">山本台3</option>
+        <option value="中山台">中山台</option>
+        <option value="中山桜台">中山桜台</option>
+        <option value="中山五月台">中山五月台</option>
+        <option value="中山寺">中山寺</option>
+        <option value="平井">平井</option>
+        <option value="平井山荘">平井山荘</option>
+        <option value="山本東">山本東</option>
+        <option value="山本中">山本中</option>
+        <option value="山本西">山本西</option>
+        <option value="山本南">山本南</option>
+        <option value="南ひばりガ丘">南ひばりガ丘</option>
+        <option value="中筋">中筋</option>
+        <option value="中筋山手">中筋山手</option>
+        <option value="中筋山手7">中筋山手7</option>
+        <option value="口谷西">口谷西</option>
+        <option value="口谷東">口谷東</option>
+        <option value="山本丸橋">山本丸橋</option>
+        <option value="山本野里">山本野里</option>
+        <option value="西谷">西谷</option>
+        <option value="長尾台">長尾台</option>
+        <option value="花屋敷荘園">花屋敷荘園</option>
+        <option value="花屋敷つつじガ丘">花屋敷つつじガ丘</option>
+        <option value="花屋敷松ガ丘">花屋敷松ガ丘</option>
+        <option value="雲雀丘">雲雀丘</option>
+        <option value="雲雀丘山手">雲雀丘山手</option>
+        <option value="ふじガ丘">ふじガ丘</option>
+        <option value="川西市満願寺">川西市満願寺</option>
+        <option value="その他">その他</option>
+      </select><br><br>
+      その他：<input type="text" name="areaOther" size="10"/><br />
 
         <h3>④携帯電話番号を入力してください</h3>
         <input type="tel" size="3" name="phone1" />-<input
@@ -158,6 +193,23 @@
         button.textContent = "送信中...";
         return true;
       }
+  
     </script>
+
+      <style>
+    .reserve{
+        width:100%;
+        font-family: sans-serif;
+        font-style:bold; 
+    }
+  input{
+    font-size: 200%;
+  }
+
+  select{
+    font-size: 200%;
+  }
+  </style>
+  
   </body>
 </html>
