@@ -33,9 +33,11 @@
         method="post"
       >
         <div class="name">
+      
+      <legend>ご参加されるお子さまについてお教えください</legend>
           <h3>①お子様のお名前を入力してください</h3>
-      <h3>名前 <input type="text" name="name1" size="10" /> <input type="text" name="name2" size="10"/></h3>
-      <h3>フリガナ <input type="text" name="furigana1" size="10"/> <input type="text" name="furigana2" size="10"/></h3>
+      <h3>名前 <input type="text" name="name1" size="5" /> <input type="text" name="name2" size="5"/></h3>
+      <h3>フリガナ <input type="text" name="furigana1" size="5"/> <input type="text" name="furigana2" size="5"/></h3>
       </div>
       <h3>②お子様の生年月日を入力してください</h3>
 
@@ -43,7 +45,17 @@
       <input type="tel" size="2" maxlength="2" name="month" /> 月
       <input type="tel" size="2" maxlength="2" name="day" /> 日<br />
 
-        <h3>③お住まいの地域を選択してください</h3>
+      <h3>③お子様の現在の通園・通学先を教えてください</h3>
+      <input type="radio" name="classification" value="未就学">未就学<br>
+      <input type="radio" name="classification" value="保育園">保育園
+      <input type="radio" name="classification" value="幼稚園">幼稚園
+      <input type="radio" name="classification" value="こども園">こども園<br>
+      <input type="radio" name="classification" value="小学校">小学校
+      <input type="radio" name="classification" value="中学校">中学校
+      <input type="radio" name="classification" value="高校">高校<br>
+
+  
+        <h3>④お住まいの地域を選択してください</h3>
         <select name="area">
         <option value=""></option>
         <option value="山手台東1">山手台東1</option>
@@ -88,7 +100,7 @@
       </select><br><br>
       その他：<input type="text" name="areaOther" size="10"/><br />
 
-        <h3>④携帯電話番号を入力してください</h3>
+        <h3>⑤携帯電話番号を入力してください</h3>
         <input type="tel" size="3" name="phone1" />-<input
           type="tel"
           size="4"
@@ -96,15 +108,46 @@
         />-<input type="tel" name="phone3" size="4" />
 
         <h2>今月のイベント 応募状況</h2>
-        にっこり赤ちゃん：<span id="event1">読み込み中...</span><br />
-        うさピョン：<span id="event2">読み込み中...</span><br />
-        ちょきペタ：<span id="event3">読み込み中...</span><br />
-        運動あそび：<span id="event4">読み込み中...</span><br />
-        誕生会：<span id="event5">読み込み中...</span><br />
-        レッツチャレンジ：<span id="event6">読み込み中...</span><br />
-        カレンダー作り：<span id="event7">読み込み中...</span><br />
+        <h4>
+        
+          <ul class="eventList">
+            <li>
+        にっこり赤ちゃん<br>
+        🗓<span id="event1">読み込み中...</span><br />
+        👶対象年齢：0歳</li><br>
 
-        <h3>⑤参加希望のイベントを選択してください</h3>
+        <li>
+        うさピョン<br>
+        🗓<span id="event2">読み込み中...</span><br />
+        👶対象年齢：1歳</li><br>
+
+        <li>
+        運動あそび<br>
+        🗓<span id="event4">読み込み中...</span><br />
+        👶対象年齢：1歳〜未就学児</li><br>
+        
+        <li>
+        ちょきペタ<br />
+        🗓<span id="event3">読み込み中...</span><br />
+        👶対象年齢：2歳〜未就学児</li><br>
+
+        <li>
+        誕生会<br>
+        🗓<span id="event5">読み込み中...</span><br />
+        👶1歳〜未就学児<br>
+        <h4 id="month"></h4></li><br>
+
+        <li>
+        レッツチャレンジ<br>
+        🗓<span id="event6">読み込み中...</span><br />
+        👶0歳〜未就学児</li><br>
+        
+        <li>
+        カレンダー作り<br>
+        🗓<span id="event7">読み込み中...</span><br />
+        👶0歳〜未就学児</li><br>
+        </h4>
+        <h3>⑥参加希望のイベントを選択してください</h3>
         イベント名
         <select name="event" id="event">
           <option value=""></option>
@@ -121,12 +164,12 @@
           <option value="">先にイベントを選択してください</option>
         </select>
 
-        <h3>⑥参加希望の講座を選択してください</h3>
+        <h3>⑦参加希望の講座を選択してください</h3>
         <select name="lecture">
           <option value=""></option>
           <option value="親子ふれあい講座">親子ふれあい講座</option>
           <option value="歯科講習会">歯科講習会</option>
-        </select>
+        </select><br><br>
 
         <button class="button4" type="submit">イベント応募</button>
       </form>
@@ -193,6 +236,10 @@
         return true;
       }
   
+      
+      const date = new Date();
+      const month = date.getMonth()+1;
+      document.getElementById('month').textContent = `🎂今月は、お誕生月が${month}月のお子様が参加できます！！`;
     </script>
 
       <style>
@@ -207,6 +254,22 @@
 
   select{
     font-size: 200%;
+  }
+
+  button{
+    font-size: 200%;
+  }
+
+  .eventList{
+    list-style: none;
+  }
+
+  .eventList li{
+    border-radius: 15px;
+    padding: 10px;
+    width: 80%;
+    background-color: skyblue;
+
   }
   </style>
   
